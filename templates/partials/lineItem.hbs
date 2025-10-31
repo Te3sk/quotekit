@@ -1,9 +1,14 @@
-<tr>
-    <td>
-        <strong>{{title}}</strong>
-        {{#if note}}<div class="muted small">{{note}}</div>{{/if}}
-    </td>
-    <td class="right">{{qty}}</td>
-    <td class="right">{{eur unit_price}}</td>
-    <td class="right">{{eur total}}</td>
-</tr>
+<div class="item">
+    <div class="item-left">
+        <div class="item-title">{{title}}</div>
+        {{#if note}}<div class="item-note">{{note}}</div>{{/if}}
+        {{#if qty}}
+        <div class="item-meta muted small">
+            Qty: {{qty}}{{#if unit_price}} · Unit: {{eur unit_price}}{{/if}}
+        </div>
+        {{/if}}
+    </div>
+    <div class="item-right">
+        <div class="item-price"><strong>{{eur total}}</strong></div>
+    </div>
+</div>

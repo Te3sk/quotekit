@@ -15,89 +15,105 @@
 </head>
 
 <body>
+    <!-- HEADER: Document header with logo, company info, and document metadata -->
     <header class="doc-header">
-        <div class="brand">
-            {{#if company.logo}}
-            <img src="{{company.logo}}" alt="{{company.name}}" class="logo">
-            {{/if}}
-            <div>
-                <h1>Preventivo</h1>
-                <p class="muted">{{company.name}} · {{company.site}}</p>
+        <!-- Left side: Document title and main metadata -->
+        <div class="doc-header-left">
+            <h1 class="doc-title">Preventivo</h1>
+            <div class="doc-meta">
+                {{!-- <div><strong>Ref:</strong> {{meta.ref}}</div> --}}
+                <div><strong>Data:</strong> {{formatDate meta.date}}</div>
+                {{#if meta.valid_until}}
+                {{!-- <div><strong>Valido fino a:</strong> {{formatDate meta.valid_until}}</div> --}}
+                {{/if}}
             </div>
         </div>
-        <div class="meta">
-            <div><strong>Data:</strong> {{formatDate meta.date}}</div>
-            <div><strong>Rif.:</strong> {{meta.ref}}</div>
-            <div><strong>Valido fino a:</strong> {{formatDate meta.valid_until}}</div>
+
+        <!-- Right side: Company logo, issuer info and top total summary -->
+        <div class="doc-header-right">
+            <div class="issuer">
+                <div class="issuer-name">{{company.name}}</div>
+                <div class="issuer-lines">
+                    {{company.address}}<br />
+                    {{company.email}} 
+                    {{!-- · --}}<br />
+                    {{company.phone}}
+                </div>
+            </div>
+            <div class="total-top">
+                <div class="total-top-label">Totale</div>
+                <div class="total-top-value"><strong>{{eur totals.grand}}</strong></div>
+            </div>
         </div>
     </header>
 
-    <section class="client">
-        <h2>Destinatario</h2>
-        <p>
-            <strong>{{client.name}}</strong><br />
-            {{client.company}}<br />
-            {{client.email}} · {{client.phone}}
-        </p>
+    <!-- CUSTOMER INFORMATION PANEL -->
+    <section class="panel">
+        <div class="panel-col">
+            <div class="panel-title">Cliente</div>
+            <div class="panel-text">
+                <strong>{{client.name}}</strong><br />
+                {{client.company}}<br />
+                {{client.email}} · {{client.phone}}
+            </div>
+        </div>
     </section>
 
+    <!-- OPTIONAL: Introductory notes or scope-->
     {{#if scope_html}}
-    <section>
-        <h2>Descrizione del progetto</h2>
+    <section class="section">
+        <h2>Note</h2>
         <div class="prose">{{{scope_html}}}</div>
     </section>
     {{/if}}
 
-    <section>
-        <h2>Voci di costo</h2>
-        <table class="items">
-            <thead>
-                <tr>
-                    <th>Voce</th>
-                    <th class="right">Q.tà</th>
-                    <th class="right">Prezzo</th>
-                    <th class="right">Totale</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each items}}
-                {{> lineItem}}
-                {{/each}}
-            </tbody>
-            <tfoot>
-                {{#if totals.subtotal}}
-                <tr>
-                    <td colspan="3" class="right">Subtotale</td>
-                    <td class="right">{{eur totals.subtotal}}</td>
-                </tr>
-                {{/if}}
-                {{#if totals.discount}}
-                <tr>
-                    <td colspan="3" class="right">Sconto</td>
-                    <td class="right">-{{eur totals.discount}}</td>
-                </tr>
-                {{/if}}
-                {{#if totals.vat}}
-                <tr>
-                    <td colspan="3" class="right">IVA ({{totals.vat_rate}}%)</td>
-                    <td class="right">{{eur totals.vat}}</td>
-                </tr>
-                {{/if}}
-                <tr class="grand">
-                    <td colspan="3" class="right"><strong>TOTALE</strong></td>
-                    <td class="right"><strong>{{eur totals.grand}}</strong></td>
-                </tr>
-            </tfoot>
-        </table>
+    <!-- LINE ITEMS AND TOTALS SECTION -->
+    <section class="section">
+        <h2>Voci</h2>
+
+        <!-- List of line items (rows for each item in the quote) -->
+        <div class="items">
+            {{#each items}}
+            {{> lineItem}}
+            {{/each}}
+        </div>
+
+        <!-- Totals summary (subtotal, discounts, VAT, and grand total) -->
+        <div class="totals">
+            {{#if totals.subtotal}}
+            <div class="totals-row">
+                <div class="totals-label">Subtotale</div>
+                <div class="totals-value">{{eur totals.subtotal}}</div>
+            </div>
+            {{/if}}
+            {{#if totals.discount}}
+            <div class="totals-row">
+                <div class="totals-label">Sconto</div>
+                <div class="totals-value">-{{eur totals.discount}}</div>
+            </div>
+            {{/if}}
+            {{#if totals.vat}}
+            <div class="totals-row">
+                <div class="totals-label">IVA ({{totals.vat_rate}}%)</div>
+                <div class="totals-value">{{eur totals.vat}}</div>
+            </div>
+            {{/if}}
+            <div class="totals-row totals-grand">
+                <div class="totals-label"><strong>TOTALE</strong></div>
+                <div class="totals-value"><strong>{{eur totals.grand}}</strong></div>
+            </div>
+        </div>
     </section>
 
+    <!-- OPTIONAL CONDITIONS SECTION -->
     {{#if terms_html}}
-    <section>
+    <section class="section">
         <h2>Condizioni</h2>
         <div class="prose">{{{terms_html}}}</div>
     </section>
     {{/if}}
 
+    <!-- FOOTER PARTIAL: Document footer and extra notes -->
     {{> footer}}
 </body>
 

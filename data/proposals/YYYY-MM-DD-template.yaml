@@ -1,0 +1,55 @@
+meta:
+  date: YYYY-MM-DD
+
+company:
+  name: Niccolò Fulgaro
+  vat: 02545310506
+  email: fulgaro.niccolo@gmail.com
+  phone: "+39 351 467 0566"
+  # address: Via Emilia 320, Pisa, PI, 56121
+  # site: ?????
+  # logo: ../assets/logo.png   # opzionale (metti il file in assets/)
+
+client:
+  # If the client is a person belonging to a company, write the person's name under "name" and the company name under "company".
+  # If the client is just a person (not associated with a company), leave the "company" field blank.
+  # If the client is a company (not a specific person), write the company name under "name" and leave "company" blank.
+  name: Client Name
+  company: Company Name
+  email: example@example.com
+  phone: "+39 333 111 2222"
+
+# You can use inline markdown...
+scope_md: |
+  **Obiettivo:** Scrivere l'obiettivo del lavoro in una frase. Volendo si possono elencare le features principali (tendenzialmente 3/5 max)
+  - Feateure 1
+  - Feateure 2
+  - Feateure 3
+
+# # ...or point to a markown file:
+# scope_md_path: "../markdown/test-descrizione.md"
+
+items:
+  - title: Feature 1
+    qty: 1
+    unit_price: 300
+    note: little description
+  - title: Feature 2
+    qty: 1
+    unit_price: 300
+    note: little description
+  - title: Feature 3
+    qty: 1
+    unit_price: 300
+    note: little description
+
+pricing:
+  discount: 0
+  vat_rate: 0
+
+terms_md: |
+  **Pagamento:** 50% avvio, 50% consegna.
+  **Validità:** 15 giorni dalla data del preventivo.
+  **Extra:** attività fuori scope verranno preventivate a parte.
+
+# terms_md_path: "../data/markdown/termini-standard.md"

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Preventivo – {{client.name}} – {{meta.ref}}</title>
+    <title>Quote – {{client.name}} – {{meta.ref}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/styles.css" />
     <style>
@@ -19,7 +19,7 @@
     <header class="doc-header">
         <!-- Left side: Document title and main metadata -->
         <div class="doc-header-left">
-            <h1 class="doc-title">Preventivo</h1>
+            <h1 class="doc-title">Quote</h1>
             <div class="doc-meta">
                 {{!-- <div><strong>Ref:</strong> {{meta.ref}}</div> --}}
                 <div><strong>Data:</strong> {{formatDate meta.date}}</div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="total-top">
-                <div class="total-top-label">Totale</div>
+                <div class="total-top-label">Total</div>
                 <div class="total-top-value"><strong>{{eur totals.grand}}</strong></div>
             </div>
         </div>
@@ -50,7 +50,7 @@
     <!-- CUSTOMER INFORMATION PANEL -->
     <section class="panel">
         <div class="panel-col">
-            <div class="panel-title">Cliente</div>
+            <div class="panel-title">Costumer</div>
             <div class="panel-text">
                 <strong>{{client.name}}</strong><br />
                 {{client.company}}<br />
@@ -62,14 +62,14 @@
     <!-- OPTIONAL: Introductory notes or scope-->
     {{#if scope_html}}
     <section class="section">
-        <h2>Note</h2>
+        <h2>Notes</h2>
         <div class="prose">{{{scope_html}}}</div>
     </section>
     {{/if}}
 
     <!-- LINE ITEMS AND TOTALS SECTION -->
     <section class="section">
-        <h2>Voci</h2>
+        <h2>Items</h2>
 
         <!-- List of line items (rows for each item in the quote) -->
         <div class="items">
@@ -82,7 +82,7 @@
         <div class="totals">
             {{#if totals.subtotal}}
             <div class="totals-row">
-                <div class="totals-label">Subtotale</div>
+                <div class="totals-label">Subtotal</div>
                 <div class="totals-value">{{eur totals.subtotal}}</div>
             </div>
             {{/if}}
@@ -99,7 +99,7 @@
             </div>
             {{/if}}
             <div class="totals-row totals-grand">
-                <div class="totals-label"><strong>TOTALE</strong></div>
+                <div class="totals-label"><strong>TOTAL</strong></div>
                 <div class="totals-value"><strong>{{eur totals.grand}}</strong></div>
             </div>
         </div>
@@ -108,7 +108,7 @@
     <!-- OPTIONAL CONDITIONS SECTION -->
     {{#if terms_html}}
     <section class="section">
-        <h2>Condizioni</h2>
+        <h2>Conditions</h2>
         <div class="prose">{{{terms_html}}}</div>
     </section>
     {{/if}}

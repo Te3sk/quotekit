@@ -1,14 +1,16 @@
 meta:
+  # IMPORTANT: If you leave the date like this (with the 'YYYY-MM-DD' placeholder), the builder (.js) will break.
+  # Before running (even for testing), replace this with a numeric date value, e.g. 2024-06-01.
   date: YYYY-MM-DD
 
 company:
-  name: Niccolò Fulgaro
-  vat: 02545310506
-  email: fulgaro.niccolo@gmail.com
-  phone: "+39 351 467 0566"
-  # address: Via Emilia 320, Pisa, PI, 56121
-  # site: ?????
-  # logo: ../assets/logo.png   # opzionale (metti il file in assets/)
+  name: Your Name
+  vat: Your Vat Number
+  email: youremail@example.com.com
+  phone: "+39 333 111 2222"
+  address: your business address
+  site: your-business-website-url.com
+  logo: ../assets/logo.png   # optional (put the file in assets/)
 
 client:
   # If the client is a person belonging to a company, write the person's name under "name" and the company name under "company".
@@ -21,7 +23,7 @@ client:
 
 # You can use inline markdown...
 scope_md: |
-  **Obiettivo:** Scrivere l'obiettivo del lavoro in una frase. Volendo si possono elencare le features principali (tendenzialmente 3/5 max)
+  **Objective:** Write the goal of the work in one sentence. If desired, you can list the main features (typically 3 to 5 maximum).
   - Feateure 1
   - Feateure 2
   - Feateure 3
@@ -48,8 +50,8 @@ pricing:
   vat_rate: 0
 
 terms_md: |
-  **Pagamento:** 50% avvio, 50% consegna.
-  **Validità:** 15 giorni dalla data del preventivo.
-  **Extra:** attività fuori scope verranno preventivate a parte.
+  **Payment:** 50% at start, 50% upon delivery.
+  **Validity:** 15 days from the date of the quote.
+  **Extra:** Out-of-scope activities will be quoted separately.
 
 # terms_md_path: "../data/markdown/termini-standard.md"

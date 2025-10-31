@@ -1,5 +1,5 @@
-**Obiettivo:** realizzazione WhatsApp chatbot per studio tattoo.
+**Goal:** Brief description of the work to be completed.
 
-- Raccolta preliminare dettagli cliente
-- Routing a consulenza o FAQ
-- Integrazione con **GoHighLevel** (calendari, pipeline, tag)
+- Main feature 1
+- Main feature 2
+- Main feature 3

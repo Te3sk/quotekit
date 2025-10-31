@@ -32,24 +32,22 @@ quotekit/
 │ ├─ build.js
 │ ├─ markdown.js
 │ └─ helpers/
-│ └─ misc.js
+│    └─ misc.js
 ├─ templates/
 │ ├─ layout.hbs
 │ └─ partials/
-│ ├─ lineItem.hbs
-│ └─ footer.hbs
+│    ├─ lineItem.hbs
+│    └─ footer.hbs
 ├─ assets/
 │ ├─ styles.css
 │ └─ logo.png (optional)
 ├─ data/
 │ ├─ proposals/
-│ │ ├─ 2025-11-01-giovanni.yaml
-│ │ └─ ...
+│ │  ├─ YYYY-MM-DD-template.yaml
+│ │  └─ ...
 │ └─ markdown/
-│ └─ giovanni-descrizione.md
+│    └─ test-desription.md
 └─ out/
-├─ 2025-11-01_Studio_Tattoo_Caruso.html
-└─ 2025-11-01_Studio_Tattoo_Caruso.pdf
 ```
 
 
@@ -135,17 +133,17 @@ terms_md: |
 ### 2. Generate the quote
 
 ```bash
-npm run build -- data/proposals/2025-11-01-giovanni.yaml
+npm run build -- data/proposals/YYYY-MM-DD-template.yaml
 ```
 
 This will produce both:
-- out/2025-11-01_Studio_Tattoo_Caruso.html
-- out/2025-11-01_Studio_Tattoo_Caruso.pdf
+- out/YYYY-MM-DD-template.html
+- out/YYYY-MM-DD-template.pdf
 
 To generate only the HTML (for visual inspection):
 
 ```bash
-npm run preview -- data/proposals/2025-11-01-giovanni.yaml --html
+npm run preview -- data/proposals/YYYY-MM-DD-template.yaml --html
 ```
 
 ---
@@ -234,24 +232,23 @@ Because all data is text-based:
 
 ```vbnet
 Preventivo
-Ref: DO-PRV-2025-103
-Date: 01/11/2025
-Valid until: 15/11/2025
+Date: DD/MM/YYYY
 
-Client: Studio Tattoo Caruso  
-Contact: hello@carusogiovanni.com · +39 333 111 2222
+Client: Client Name
+Company: Client Company
+Contact: test@example.com · +39 333 111 2222
 
 ------------------------------------------------------
 
-Objective: WhatsApp chatbot development for tattoo studio
+Objective: Little description of the work
 
 Item                         Qty    Unit    Price
 ------------------------------------------------------
-Chatbot setup                1      €300    €300
-CRM integration              1      €150    €150
-Flow refinement              1      €200    €200
+Feature 1                    1      €100    €100
+Feature 2                    2      €100    €200
+Feature 3                    1      €100    €100
 
-TOTAL: €793,00
+TOTAL: €400,00
 ------------------------------------------------------
 
 Payment: 50% at start, 50% at delivery  

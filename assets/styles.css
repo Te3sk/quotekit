@@ -1,0 +1,116 @@
+:root {
+    --brand: #E6C083;
+    --ink: #222;
+    --muted: #666;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+}
+
+h1,
+h2 {
+    margin: 0 0 .25rem 0;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    border-bottom: 2px solid var(--brand);
+    padding-bottom: 4px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 12px;
+}
+
+.right {
+    text-align: right;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.logo {
+    height: 48px;
+}
+
+.meta {
+    text-align: right;
+    font-size: 12px;
+}
+
+.client {
+    background: #fafafa;
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+table.items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.items th,
+.items td {
+    border: 1px solid var(--border);
+    padding: 8px;
+    vertical-align: top;
+}
+
+.items thead th {
+    background: #f7f7f7;
+    font-weight: 600;
+}
+
+.items tfoot td {
+    background: #fcfcfc;
+}
+
+.items tfoot tr.grand td {
+    border-top: 2px solid var(--ink);
+    font-size: 15px;
+}
+
+.doc-footer {
+    margin-top: 24px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prose p {
+    margin: 0 0 .5rem;
+}
+
+.prose ul {
+    margin: .25rem 0 .5rem 1.25rem;
+}

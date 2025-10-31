@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Preventivo – {{client.name}} – {{meta.ref}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm 16mm;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="doc-header">
+        <div class="brand">
+            {{#if company.logo}}
+            <img src="{{company.logo}}" alt="{{company.name}}" class="logo">
+            {{/if}}
+            <div>
+                <h1>Preventivo</h1>
+                <p class="muted">{{company.name}} · {{company.site}}</p>
+            </div>
+        </div>
+        <div class="meta">
+            <div><strong>Data:</strong> {{formatDate meta.date}}</div>
+            <div><strong>Rif.:</strong> {{meta.ref}}</div>
+            <div><strong>Valido fino a:</strong> {{formatDate meta.valid_until}}</div>
+        </div>
+    </header>
+
+    <section class="client">
+        <h2>Destinatario</h2>
+        <p>
+            <strong>{{client.name}}</strong><br />
+            {{client.company}}<br />
+            {{client.email}} · {{client.phone}}
+        </p>
+    </section>
+
+    {{#if scope_html}}
+    <section>
+        <h2>Descrizione del progetto</h2>
+        <div class="prose">{{{scope_html}}}</div>
+    </section>
+    {{/if}}
+
+    <section>
+        <h2>Voci di costo</h2>
+        <table class="items">
+            <thead>
+                <tr>
+                    <th>Voce</th>
+                    <th class="right">Q.tà</th>
+                    <th class="right">Prezzo</th>
+                    <th class="right">Totale</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                {{> lineItem}}
+                {{/each}}
+            </tbody>
+            <tfoot>
+                {{#if totals.subtotal}}
+                <tr>
+                    <td colspan="3" class="right">Subtotale</td>
+                    <td class="right">{{eur totals.subtotal}}</td>
+                </tr>
+                {{/if}}
+                {{#if totals.discount}}
+                <tr>
+                    <td colspan="3" class="right">Sconto</td>
+                    <td class="right">-{{eur totals.discount}}</td>
+                </tr>
+                {{/if}}
+                {{#if totals.vat}}
+                <tr>
+                    <td colspan="3" class="right">IVA ({{totals.vat_rate}}%)</td>
+                    <td class="right">{{eur totals.vat}}</td>
+                </tr>
+                {{/if}}
+                <tr class="grand">
+                    <td colspan="3" class="right"><strong>TOTALE</strong></td>
+                    <td class="right"><strong>{{eur totals.grand}}</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    {{#if terms_html}}
+    <section>
+        <h2>Condizioni</h2>
+        <div class="prose">{{{terms_html}}}</div>
+    </section>
+    {{/if}}
+
+    {{> footer}}
+</body>
+
+</html>

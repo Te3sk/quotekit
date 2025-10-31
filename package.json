@@ -1,0 +1,17 @@
+{
+  "name": "quotekit",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.js",
+    "preview": "node src/build.js --html",
+    "list": "node -e \"console.log(require('fs').readdirSync('./data/proposals').join('\\n'))\""
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.1.0",
+    "puppeteer": "^23.7.0"
+  }
+}

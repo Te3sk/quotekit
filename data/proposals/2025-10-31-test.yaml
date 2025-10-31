@@ -1,0 +1,54 @@
+meta:
+  date: 2025-11-01
+  valid_until: 2025-11-15
+  ref: DO-PRV-2025-103
+
+company:
+  name: Digital On
+  vat: IT01234567890
+  email: preventivi@digital-on.com
+  phone: "+39 379 320 8283"
+  address: Via Biordo Michelotti 26, 00100 Roma (RM)
+  site: digital-on.com
+  logo: ../assets/logo.png   # opzionale (metti il file in assets/)
+
+client:
+  name: Giovanni Caruso
+  company: Studio Tattoo Caruso
+  email: hello@carusogiovanni.com
+  phone: "+39 333 111 2222"
+
+# Puoi usare markdown inline...
+scope_md: |
+  **Obiettivo:** realizzazione di un *WhatsApp chatbot* per gestione richieste.
+  - Raccolta info cliente
+  - Prenotazione consulenza via GHL
+  - Notifiche interne
+
+# ...oppure puntare a un file markdown esterno:
+# scope_md_path: "../data/markdown/giovanni-descrizione.md"
+
+items:
+  - title: Setup chatbot
+    qty: 1
+    unit_price: 300
+    note: Installazione, configurazione base, canali.
+  - title: Integrazione GHL
+    qty: 1
+    unit_price: 150
+    note: Calendari, pipeline, notifiche.
+  - title: Fine-tuning flussi
+    qty: 1
+    unit_price: 200
+    note: 2 iterazioni di miglioramento.
+
+pricing:
+  discount: 0
+  vat_rate: 22
+
+terms_md: |
+  **Pagamento:** 50% avvio, 50% consegna.
+  **Validità:** 15 giorni dalla data del preventivo.
+  **Extra:** attività fuori scope verranno preventivate a parte.
+
+# terms_md_path: "../data/markdown/termini-standard.md"
